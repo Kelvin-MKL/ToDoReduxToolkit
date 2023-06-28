@@ -1,14 +1,14 @@
 import './App.css'
+import Form from './components/Form'
+import ToDoList from './components/ToDoList'
 
 function App() {
 
 
   return (
     <>
-      <div>
-        This is main page
-      </div>
-
+        <Form />
+        <ToDoList/>
     </>
   )
 }
