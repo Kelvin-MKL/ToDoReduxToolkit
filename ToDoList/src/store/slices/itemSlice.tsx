@@ -23,9 +23,17 @@ export const ItemSlice = createSlice({
                 id: state.items.length,
                 name: action.payload.name,
             })
+        },
+        deleteItem:(state, action: PayloadAction<{id: number}>) => {
+            console.log(action.payload.id);
+            const index = state.items.findIndex( i => i.id == action.payload.id);
+            if (index !== -1) state.items.splice(index, 1)
+            // fix non-unique id issue
+            
         }
+        
     }
 })
 
 export default ItemSlice.reducer;
-export const { addItem } = ItemSlice.actions;
+export const { addItem, deleteItem } = ItemSlice.actions;
