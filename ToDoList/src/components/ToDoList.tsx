@@ -5,27 +5,20 @@ const ToDoList = () => {
     const items = useAppSelector((state) => state.item.items);
     const dispatch = useAppDispatch();
 
-    return <div> 
+    return <div className="list-container"> 
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    
-                    <th>Name</th>
-                </tr>
-            </thead>
-        <tbody>
             {items.map((item) => (
-            <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td><button onClick={() => dispatch(deleteItem({id:item.id}))}>delete</button></td>
-            </tr>))}
+                <div key={item.id} className="card">
+                    
+                        <p>{item.id}</p>
+                        <p>{item.name}</p>
+                        <p>{item.place}</p>
+                        <p><button onClick={() => dispatch(deleteItem({id:item.id}))}>delete</button></p>
 
-        </tbody>
+                </div>))
+            }
 
-        </table>
+  
         
         </div>;
 }
