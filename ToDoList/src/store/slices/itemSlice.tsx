@@ -22,11 +22,11 @@ export const ItemSlice = createSlice({
     reducers: {
         addItem: (state, action: PayloadAction<{ name: string; place: string }>) => {
             action.payload.name && action.payload.place ? 
-            state.items.push({
-                id: parseInt(Math.random().toString().substring(2,10)),
-                name: action.payload.name,
-                place: action.payload.place,
-            }) : console.log("addItem missing a parameter.")
+                state.items.push({
+                    id: parseInt(Math.random().toString().substring(2,10)),
+                    name: action.payload.name,
+                    place: action.payload.place,
+                }) : console.log("addItem missing a parameter.")
         },
         deleteItem:(state, action: PayloadAction<{id: number}>) => {
             // Find the targeted index, then delete it.

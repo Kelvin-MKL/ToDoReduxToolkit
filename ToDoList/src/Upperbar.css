@@ -1,0 +1,11 @@
+.upper {
+    display: flex;
+    position: relative;
+    width: 80vw;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    margin: 10px;
+
+}
