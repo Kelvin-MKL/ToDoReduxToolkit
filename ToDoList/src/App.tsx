@@ -1,6 +1,7 @@
 import './App.css'
 import './Navbar.css'
 import './Upperbar.css'
+import './Utilities.css'
 import Form from './components/Form'
 import ToDoList from './components/ToDoList'
 import Navbar from './components/Navbar'

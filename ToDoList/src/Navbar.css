@@ -1,25 +1,52 @@
+:root {
+    --navbar-width: 160px;
+    --color: red;
+    --link-display: visible;
+
+}
+
 .nav-menu{
     display: flex;
-    width: 10vw;
+    width: var(--navbar-width);
+    min-width: var(--navbar-width);
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     position: relative;
     padding: 0.5rem 0rem;
-    color: black;
+    color: var(--color);
     box-shadow: 0 2px 2px 2px;
+    
 }
-  
+
+.nav-menu.toggle{
+    --navbar-width: 80px;
+    --color: black;
+    --link-display: hidden;
+    
+}
+
 .nav-menu ul {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: left;
     padding: 0;
+    
 }
 
 .nav-menu li {
+    width: 150px;
     list-style-type: none;
     padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    
+    
+}
+
+.nav-menu li :nth-child(2){
+    visibility: var(--link-display);
 }
 
 .nav-menu li a {
