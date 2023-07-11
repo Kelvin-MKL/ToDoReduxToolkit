@@ -16,16 +16,14 @@ const Navbar = () => {
             <div>
                 <ul>
                     <li>
-                        <IconHome onClick={() => console.log("n1o")}></IconHome>
-                        <Link to="/">Home</Link>
+                        {expand? <section><IconHome className="icon"/><Link to="/">Home</Link></section> : <Link to="/"><IconHome/></Link>}
+                        
                     </li>
                     <li>
-                        <IconHome onClick={() => console.log("n1o")}></IconHome>
-                        <Link to="/form">Memo</Link>
+                        {expand? <span><IconHome className="icon"/><Link to="/form">Memo</Link></span> : <Link to="/form"><IconHome /></Link>}   
                     </li>
                     <li>
-                        <IconHome onClick={() => console.log("n1o")}></IconHome>
-                        <Link to="/todo">To do</Link>
+                        {expand? <><IconHome className="icon"/><Link to="/todo">To Do</Link></> : <Link to="/todo"><IconHome onClick={() => console.log("n1o")}></IconHome></Link>}
                     </li>
   
 

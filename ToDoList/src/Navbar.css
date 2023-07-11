@@ -1,7 +1,7 @@
 :root {
     --navbar-width: 160px;
     --color: red;
-    --link-display: visible;
+ 
 
 }
 
@@ -21,7 +21,7 @@
 .nav-menu.toggle{
     --navbar-width: 80px;
     --color: black;
-    --link-display: hidden;
+
     
 }
 
@@ -35,19 +35,17 @@
 }
 
 .nav-menu li {
-    width: 150px;
     list-style-type: none;
     padding: 0.5rem;
     display: flex;
-    justify-content: space-around;
     overflow: hidden;
-    
     
 }
 
-.nav-menu li :nth-child(2){
-    visibility: var(--link-display);
+.icon{
+    padding-right:1rem;
 }
+
 
 .nav-menu li a {
     text-decoration: none;
