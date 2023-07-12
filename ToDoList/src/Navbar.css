@@ -1,4 +1,4 @@
-:root {
+#root {
     --navbar-width: 160px;
     --color: red;
  
@@ -19,8 +19,8 @@
 }
 
 .nav-menu.toggle{
-    --navbar-width: 80px;
-    --color: black;
+    --navbar-width: 60px;
+    --color: blue;
 
     
 }
@@ -38,8 +38,19 @@
     list-style-type: none;
     padding: 0.5rem;
     display: flex;
-    overflow: hidden;
-    
+}
+
+/* .nav-menu li:hover{
+    transform: scale(1.1);
+} */
+
+.nav-menu li:hover::before{
+    content: "";
+    position: absolute;
+    min-width: 2px;
+    height: 25px;
+    left: 3px;
+    background-color: purple;
 }
 
 .icon{
@@ -49,6 +60,16 @@
 
 .nav-menu li a {
     text-decoration: none;
- 
-    
 }
+
+.nav-menu li .active::before{
+    content: "";
+    position: absolute;
+    min-width: 5px;
+    height: 25px;
+    left: 3px;
+    background-color: purple;
+
+
+}
+

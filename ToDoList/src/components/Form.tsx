@@ -9,14 +9,15 @@ const Add = () => {
     
     return (
         <div>
-        <form className="form" onSubmit={e => e.preventDefault()}>
-        <label htmlFor="">Item Name:</label>
-        <input className="input" type="text" onChange={(e) => name.current = e.target.value}/>
-        <label htmlFor="">Place:</label>
-        <input type="text" onChange={e => place.current = e.target.value}/>
-        <button onClick={ () => dispatch(addItem({name:name.current, place: place.current}))}>Add</button>
-    </form>
-    </div>
+            <div>Add item here.</div>
+            <form className="form" onSubmit={e => e.preventDefault()}>
+                <label htmlFor="">Item Name:</label>
+                <input className="input" type="text" onChange={(e) => name.current = e.target.value}/>
+                <label htmlFor="">Place:</label>
+                <input type="text" onChange={e => place.current = e.target.value}/>
+                <button onClick={ () => dispatch(addItem({name:name.current, place: place.current}))}>Add</button>
+            </form>
+        </div>
     )
 }
  

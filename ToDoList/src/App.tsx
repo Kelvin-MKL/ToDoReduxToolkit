@@ -7,6 +7,7 @@ import ToDoList from './components/ToDoList'
 import Navbar from './components/Navbar'
 import Upper from './components/Upperbar'
 import Home from './components/Home'
+import ColorPicker from './components/ColorPicker'
 import {Routes, Route} from 'react-router-dom'
 
 
@@ -24,6 +25,7 @@ function App() {
               <Route path='/' element={<Home/>}></Route>
               <Route path='/todo' element={<ToDoList/>}></Route>
               <Route path='/form' element={<Form/>}></Route>
+              <Route path='/colorpicker' element={<ColorPicker/>}></Route>
 
               
             </Routes>

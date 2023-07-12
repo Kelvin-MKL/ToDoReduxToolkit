@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom'
+import { NavLink as Link } from 'react-router-dom'
 import Hamburger from '../components/utilities/Hamburger'
 import { useState } from 'react'
 import { AiFillHome as IconHome } from 'react-icons/Ai'
-
+import { CgColorPicker as IconColorPicker } from 'react-icons/Cg'
+import { RiTodoLine as IconToDo } from 'react-icons/Ri'
+import { IoMdAdd as IconAdd } from 'react-icons/Io'
+ 
 
 const Navbar = () => {
     const [expand, setExpand] = useState(true);
@@ -10,7 +13,7 @@ const Navbar = () => {
     return ( 
     <>
         <nav className={expand? "nav-menu" : "nav-menu toggle"}>
-            <div onClick={() => setExpand(!expand)}><Hamburger/></div>
+            <div onClick={() => setExpand(!expand)}><Hamburger isExpanded={expand}/></div>
             
             
             <div>
@@ -20,10 +23,13 @@ const Navbar = () => {
                         
                     </li>
                     <li>
-                        {expand? <span><IconHome className="icon"/><Link to="/form">Memo</Link></span> : <Link to="/form"><IconHome /></Link>}   
+                        {expand? <span><IconAdd className="icon"/><Link to="/form">Memo</Link></span> : <Link to="/form"><IconAdd /></Link>}   
                     </li>
                     <li>
-                        {expand? <><IconHome className="icon"/><Link to="/todo">To Do</Link></> : <Link to="/todo"><IconHome onClick={() => console.log("n1o")}></IconHome></Link>}
+                        {expand? <><IconToDo className="icon"/><Link to="/todo">To Do</Link></> : <Link to="/todo"><IconToDo/></Link>}
+                    </li>
+                    <li>
+                        {expand? <><IconColorPicker className="icon"/><Link to="/colorpicker">Pick</Link></> : <Link to="/colorpicker"><IconColorPicker onClick={() => console.log("n1o")}></IconColorPicker></Link>}
                     </li>
   
 

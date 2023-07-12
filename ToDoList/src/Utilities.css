@@ -6,21 +6,35 @@
     justify-content: space-around;
     z-index: 5;
     cursor: pointer;
-    
+}
+
+.hamburger:hover .burger:nth-child(1){
+    animation: openBurger 2.5s ease-in-out 0s infinite;
+}
+
+.hamburger:hover .xburger:nth-child(1){
+    rotate: 0deg;
+}
+
+.hamburger:hover .xburger:nth-child(2){
+    rotate: -20deg;
+}
+
+.hamburger:hover .xburger:nth-child(3){
+    rotate: 20deg;
 }
 
 .burger {
-    width: 2rem;
+    width: 1.8rem;
     height: 0.15rem;
     border-radius: 10px;
     background-color: black;
     transition: 0.3s linear;
     margin-left: 5px;
-
 }
 
-.xburger {
-    width: 2rem;
+.xburger{
+    width: 1.8rem;
     height: 0.15rem;
     border-radius: 10px;
     background-color: red;
@@ -28,3 +42,21 @@
     margin-left: 5px;
 
 }
+
+.xburger:nth-child(1), .xburger:nth-child(3){
+    rotate: -20deg;
+
+}
+
+.xburger:nth-child(2){
+    rotate: 20deg;
+
+}
+
+@keyframes openBurger{
+    20% {rotate: -20deg;}
+    50% {rotate: 5deg;}
+    70% {rotate: -15deg;}
+    90% {rotate: 0deg;}
+}
+

@@ -1,7 +1,7 @@
 .upper {
     display: flex;
     position: relative;
-    width: 80vw;
+    width: auto;
     height: 10vh;
     align-items: center;
     justify-content: center;

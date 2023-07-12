@@ -9,19 +9,26 @@
 
 .outter {
   display: relative;
-  width: 100%;
+  width: 95%;
   height: 100%;
   display: flex;
+  border: 5px solid pink;
   
+}
+
+.main-container{
+  border: 5px solid green;
+  width: 100%;
+
 }
 
 .list-container{
   height: 70vh;
-  width: 80%;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: row;
-  background-color: aqua;
+  background-color: seagreen;
   flex-wrap: wrap;
   
 }
