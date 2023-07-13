@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { ItemSlice } from "./slices/itemSlice";
+import { ColorSlice } from "./slices/colorSlice"
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 export const store=configureStore({
     reducer: {
-        item:ItemSlice.reducer
+        item:ItemSlice.reducer,
+        color:ColorSlice.reducer
     }
 
 })

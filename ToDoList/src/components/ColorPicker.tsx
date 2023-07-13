@@ -1,5 +1,9 @@
-import { SketchPicker, BlockPicker } from "react-color";
+import { SketchPicker } from "react-color";
 import { useState } from "react";
+import  ColorList  from "./ColorList"
+import { useAppDispatch } from "../store/store"; 
+import { addColor } from "../store/slices/colorSlice"
+
 
 interface Color {
     r: number,
@@ -18,19 +22,22 @@ const ColorPicker = () => {
 
     const {r, g, b, a} = sketchPickerColor;
 
-    const [blockPickerColor, setBlockPickerColor] = useState("#37d67a");
+    const dispatch = useAppDispatch();
+
+
 
     return ( 
         <>
         <p>THis is color picker</p>
         <div className="sketchpicker" style={{display: "flex", padding: "40px", justifyContent: "space-around"}}>        
             <SketchPicker onChange={ color => {setSketchPickerColor(color.rgb)}} color={sketchPickerColor}></SketchPicker>
-            <BlockPicker></BlockPicker>
+            <ColorList></ColorList>
         </div>
-        <div className="sketchpicker" style={{display: "flex", padding: "40px", justifyContent: "space-around"}}>
-            <div style={{background: `rgba(${r},${g},${b},${a})`, width: 100, height: 50}}></div>
-            <div style={{background: `rgba(${r},${g},${b},${a})`, width: 100, height: 50}}></div>
+        <div  style={{display: "flex", padding: "40px", justifyContent: "space-around"}}>
+            <button style={{background: `rgba(${r},${g},${b},${a})`, border: "none", boxShadow: "2px 2px", cursor: "pointer"}} onClick={() => dispatch(addColor({r:r, g:g, b:b, a: a}))}>ADD</button>
+            
         </div>
+
         </>
      );
 }
