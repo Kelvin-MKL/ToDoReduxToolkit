@@ -28,17 +28,54 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  background-color: seagreen;
-  flex-wrap: wrap;
   
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .card{
   height: 200px;
   width: 200px;
-  background-color: green;
-  border-radius: 10px;
+  background-color: rgb(204, 219, 65);
+  border-radius: 20px 5px 20px 5px;
   margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 2px 2px 10px 0 rgb(52, 141, 44);
+  overflow-wrap: break-word;
+  word-break: break-all;
+  overflow-y: scroll;
+  z-index: 20;
+}
+
+.card:hover{
+  transform: translateY(-5px);
+}
+
+.card::-webkit-scrollbar{
+  display: none;
+}
+
+.card div:nth-child(1){
+  text-decoration: underline wavy blue;
+}
+
+.memo-delete{
+  
+  background-color: aliceblue;
+  border-radius: 5px;
+  border: none;
+  position: sticky;
+  bottom: 2px;
+  cursor: pointer;
+}
+
+.memo-delete:hover{
+  transform: scale(1.05);
 }
 
 .middle{

@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import Upper from './components/Upperbar'
 import Home from './components/Home'
 import ColorPicker from './components/ColorPicker'
+import Chart from './components/Chart'
 import {Routes, Route} from 'react-router-dom'
 
 
@@ -24,8 +25,8 @@ function App() {
           <div className="middle">
             <Routes>
               <Route path='/' element={<Home/>}></Route>
+              <Route path='/chart' element={<Chart/>}></Route>
               <Route path='/todo' element={<ToDoList/>}></Route>
-              <Route path='/form' element={<Form/>}></Route>
               <Route path='/colorpicker' element={<ColorPicker/>}></Route>
 
               

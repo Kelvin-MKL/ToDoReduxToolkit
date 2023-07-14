@@ -8,8 +8,8 @@ const Add = () => {
     const dispatch = useAppDispatch();
     
     return (
-        <div>
-            <div>Add item here.</div>
+        <div style={{padding: "0.5rem"}}>
+            <div>Memo Tag</div>
             <form className="form" onSubmit={e => e.preventDefault()}>
                 <label htmlFor="">Item Name:</label>
                 <input className="input" type="text" onChange={(e) => name.current = e.target.value}/>

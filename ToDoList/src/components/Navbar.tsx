@@ -19,14 +19,14 @@ const Navbar = () => {
             <div>
                 <ul>
                     <li>
-                        {expand? <section><IconHome className="icon"/><Link to="/">Home</Link></section> : <Link to="/"><IconHome/></Link>}
+                        {expand? <><IconHome className="icon"/><Link to="/">Home</Link></> : <Link to="/"><IconHome/></Link>}
                         
                     </li>
                     <li>
-                        {expand? <span><IconAdd className="icon"/><Link to="/form">Memo</Link></span> : <Link to="/form"><IconAdd /></Link>}   
+                        {expand? <><IconAdd className="icon"/><Link to="/chart">Chart</Link></> : <Link to="/chart"><IconAdd /></Link>}   
                     </li>
                     <li>
-                        {expand? <><IconToDo className="icon"/><Link to="/todo">To Do</Link></> : <Link to="/todo"><IconToDo/></Link>}
+                        {expand? <><IconToDo className="icon"/><Link to="/todo">Memo</Link></> : <Link to="/todo"><IconToDo/></Link>}
                     </li>
                     <li>
                         {expand? <><IconColorPicker className="icon"/><Link to="/colorpicker">Pick</Link></> : <Link to="/colorpicker"><IconColorPicker onClick={() => console.log("n1o")}></IconColorPicker></Link>}

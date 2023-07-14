@@ -1,26 +1,30 @@
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { deleteItem } from "../store/slices/itemSlice";
+import Form from "./Form"
 
 const ToDoList = () => {
     const items = useAppSelector((state) => state.item.items);
     const dispatch = useAppDispatch();
 
-    return <div className="list-container"> 
+    return ( 
+    <>
+        <Form></Form>
+        <div className="list-container"> 
 
             {items.map((item) => (
                 <div key={item.id} className="card">
                     
-                        <p>{item.id}</p>
-                        <p>{item.name}</p>
-                        <p>{item.place}</p>
-                        <p><button onClick={() => dispatch(deleteItem({id:item.id}))}>delete</button></p>
+                        <div style={{}}>{item.name}</div>
+                        <div style={{height: "180px"}}>{item.place}</div>
+                        <button className="memo-delete" onClick={() => dispatch(deleteItem({id:item.id}))}>delete</button>
 
                 </div>))
             }
 
   
         
-        </div>;
+        </div>
+    </>);
 }
  
 export default ToDoList;
