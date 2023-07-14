@@ -5,7 +5,7 @@ import { useAppDispatch } from "../store/store";
 import { addColor } from "../store/slices/colorSlice"
 
 
-interface Color {
+export interface Color {
     r: number,
     g: number,
     b: number,
@@ -24,14 +24,16 @@ const ColorPicker = () => {
 
     const dispatch = useAppDispatch();
 
-
+    const handleLoadColor = (color: Color) => {
+        setSketchPickerColor(color)
+    }
 
     return ( 
         <>
         <p>THis is color picker</p>
         <div className="sketchpicker" style={{display: "flex", padding: "40px", justifyContent: "space-around"}}>        
             <SketchPicker onChange={ color => {setSketchPickerColor(color.rgb)}} color={sketchPickerColor}></SketchPicker>
-            <ColorList></ColorList>
+            <ColorList handleLoad={handleLoadColor}></ColorList>
         </div>
         <div  style={{display: "flex", padding: "40px", justifyContent: "space-around"}}>
             <button style={{background: `rgba(${r},${g},${b},${a})`, border: "none", boxShadow: "2px 2px", cursor: "pointer"}} onClick={() => dispatch(addColor({r:r, g:g, b:b, a: a}))}>ADD</button>
