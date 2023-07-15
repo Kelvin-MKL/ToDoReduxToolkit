@@ -4,6 +4,8 @@ export interface Item{
     id: number;
     name: string;
     place: string;
+    isFinished: boolean;
+
     
 
 }
@@ -20,18 +22,27 @@ export const ItemSlice = createSlice({
     name: "item",
     initialState,
     reducers: {
-        addItem: (state, action: PayloadAction<{ name: string; place: string }>) => {
+        addItem: (state, action: PayloadAction<{ name: string; place: string; }>) => {
             action.payload.name && action.payload.place ? 
                 state.items.push({
                     id: parseInt(Math.random().toString().substring(2,10)),
                     name: action.payload.name,
                     place: action.payload.place,
+                    isFinished: false,
+                   
+
                 }) : console.log("addItem missing a parameter.")
         },
         deleteItem:(state, action: PayloadAction<{id: number}>) => {
             // Find the targeted index, then delete it.
             const index = state.items.findIndex( i => i.id == action.payload.id);
-            if (index !== -1) state.items.splice(index, 1)
+
+            if (index !== -1) state.items[index].isFinished = !state.items[index].isFinished;
+            
+
+            // state.items.splice(index, 1)
+
+            // if (index !== -1) state.items.splice(index, 1)
             
             
         }

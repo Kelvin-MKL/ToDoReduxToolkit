@@ -50,6 +50,16 @@
   word-break: break-all;
   overflow-y: scroll;
   z-index: 20;
+  
+}
+
+.card.finished {
+  animation: fallAway 1s ease-out forwards; 
+
+}
+
+.noShow{
+  display: none;
 }
 
 .card:hover{
@@ -82,4 +92,26 @@
   border: 2px solid black;
   margin: 10px;
   box-shadow: 1.5px 1.5px 10px 0;
+}
+
+
+@keyframes fallAway {
+  0% {
+    transform: rotateZ(0deg);
+    top: 0;
+    opacity: 1;
+  }
+  25% {
+    transform: rotateZ(-15deg);
+  }
+  100% {
+    top:200px;
+    transform: rotateZ(-5deg);
+    opacity: 0;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    
+  }
 }

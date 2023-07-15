@@ -17,6 +17,7 @@ const Add = () => {
                 <input type="text" onChange={e => place.current = e.target.value}/>
                 <button onClick={ () => dispatch(addItem({name:name.current, place: place.current}))}>Add</button>
             </form>
+            
         </div>
     )
 }
