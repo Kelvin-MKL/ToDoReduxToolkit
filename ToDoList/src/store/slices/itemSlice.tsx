@@ -6,7 +6,6 @@ export interface Item{
     place: string;
     isFinished: boolean;
 
-    
 
 }
 
@@ -36,19 +35,17 @@ export const ItemSlice = createSlice({
         deleteItem:(state, action: PayloadAction<{id: number}>) => {
             // Find the targeted index, then delete it.
             const index = state.items.findIndex( i => i.id == action.payload.id);
-
+            state.items.splice(index, 1)
+        },
+        changeItemStatus:(state, action: PayloadAction<{id: number}>) => {
+            // Change isFinished to yes, for caching - long enoung to animate it when it gets deleted.
+            const index = state.items.findIndex( i => i.id == action.payload.id);
             if (index !== -1) state.items[index].isFinished = !state.items[index].isFinished;
             
+        },
 
-            // state.items.splice(index, 1)
-
-            // if (index !== -1) state.items.splice(index, 1)
-            
-            
-        }
-        
     }
 })
 
 export default ItemSlice.reducer;
-export const { addItem, deleteItem } = ItemSlice.actions;
+export const { addItem, deleteItem, changeItemStatus } = ItemSlice.actions;
