@@ -1,12 +1,23 @@
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { changeItemStatus, deleteItem } from "../store/slices/itemSlice";
 import Form from "./Form"
+import { useEffect } from "react";
+import { fetchUsers } from '../store/slices/itemSlice'
 
 
 
 const ToDoList = () => {
     const items = useAppSelector((state) => state.item.items);
+    const status = useAppSelector((state) => state.item.status); // testing
     const dispatch = useAppDispatch();
+
+    useEffect (() => {
+        if (status === 'idle') {
+            console.log("tes")
+            dispatch(fetchUsers())
+        }
+    }, [status, dispatch])
+
 
     const handleDeleteAnimation = (index: number) => {
         // param: item id
@@ -27,7 +38,7 @@ const ToDoList = () => {
         
             {items.map((item) => 
                 <div key={item.id} className={ item.isFinished ? "card finished" : "card"  }>
-                        
+                        {status}
                         <div >{item.name}</div>
                         <div >{item.isFinished}</div>
                         <div style={{height: "180px"}}>{item.place}</div>

@@ -39,12 +39,6 @@ export const ColorSlice = createSlice({
             const index = state.colors.findIndex( i => i.id == action.payload.id);
             if (index !== -1) state.colors.splice(index, 1)
         },
-        selectColor:(state, action: PayloadAction<{id : number}>) => {
-            const newColor = state.colors.findIndex( i => i.id == action.payload.id)
-
-            // state.selected = {id: 123, r:12, b:123, g:12}
-
-        }
         
     }
 })

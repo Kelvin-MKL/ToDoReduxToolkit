@@ -1,20 +1,35 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios"
+const USER_URL = 'https://random-data-api.com/api/v2/users'
+
+
+export const fetchUsers = createAsyncThunk('user', async () => {
+    try {
+        const response = await axios.get(USER_URL)
+        return response.data
+    } catch (error: any) {
+        return error.message;
+    }
+}
+)
 
 export interface Item{
     id: number;
     name: string;
     place: string;
     isFinished: boolean;
-
+    
 
 }
 
 interface ItemState{
-    items: Item[];
+    items: Item[],
+    status: 'idle' | 'loading' | 'succeeded' | 'failed'
 }
 
 const initialState: ItemState = {
-    items: []
+    items: [],
+    status: 'idle'
 }
 
 export const ItemSlice = createSlice({
@@ -28,6 +43,7 @@ export const ItemSlice = createSlice({
                     name: action.payload.name,
                     place: action.payload.place,
                     isFinished: false,
+                    
                    
 
                 }) : console.log("addItem missing a parameter.")
@@ -44,6 +60,30 @@ export const ItemSlice = createSlice({
             
         },
 
+    },
+    extraReducers(builder){
+        builder
+            .addCase(fetchUsers.pending, (state, action) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.status = 'succeeded'
+                console.log("good")
+                console.log(action.payload.password)
+                const users = {
+                    id: parseInt(Math.random().toString().substring(2,10)),
+                    name: action.payload.last_name,
+                    place: 'no',
+                    isFinished: false,
+                } 
+                state.items.push(users)
+
+                
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.status = 'failed'
+                console.log(action.error.message)
+            })
     }
 })
 
