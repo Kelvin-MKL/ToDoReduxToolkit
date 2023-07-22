@@ -5,7 +5,9 @@
     height: 10vh;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
-    margin: 10px;
+    box-shadow: var(--box-shadow-child);
+    margin: 15px;
+    background-color: var(--background-color-child);
+    border-radius: 10px;
 
 }

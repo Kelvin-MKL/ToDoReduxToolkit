@@ -28,7 +28,7 @@ interface ItemState{
 }
 
 const initialState: ItemState = {
-    items: [],
+    items: [{id: 123, name: "Hello", place: "Write some notes", isFinished: false}],
     status: 'idle'
 }
 
@@ -69,7 +69,7 @@ export const ItemSlice = createSlice({
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 console.log("good")
-                console.log(action.payload.password)
+                console.log(action.payload)
                 const users = {
                     id: parseInt(Math.random().toString().substring(2,10)),
                     name: action.payload.last_name,

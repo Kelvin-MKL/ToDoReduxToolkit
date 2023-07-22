@@ -1,4 +1,4 @@
-import { NavLink as Link } from 'react-router-dom'
+import { NavLink as NLink } from 'react-router-dom'
 import Hamburger from '../components/utilities/Hamburger'
 import { useState } from 'react'
 import { AiFillHome as IconHome } from 'react-icons/Ai'
@@ -20,23 +20,23 @@ const Navbar = () => {
             <div>
                 <ul>
                     <li>
-                        {expand? <><IconHome className="icon"/><Link to="/">Home</Link></> : <Link to="/"><IconHome/></Link>}
+                        {expand? <div className="link-wrapper"><IconHome className="icon"/><NLink to="/">Home</NLink></div> : <NLink  to="/"><IconHome className="icon"/></NLink>}
                         
                     </li>
                     <li>
-                        {expand? <><IconWeather className="icon"/><Link to="/weather">Weather</Link></> : <Link to="/weather"><IconWeather /></Link>}   
+                        {expand? <><IconWeather className="icon"/><NLink to="/weather">Weather</NLink></> : <NLink to="/weather"><IconWeather className="icon"/></NLink>}   
                     </li>
                     <li>
-                        {expand? <><IconAdd className="icon"/><Link to="/chart">Chart</Link></> : <Link to="/chart"><IconAdd /></Link>}   
+                        {expand? <><IconAdd className="icon"/><NLink to="/chart">Chart</NLink></> : <NLink to="/chart"><IconAdd className="icon"/></NLink>}   
                     </li>
                     <li>
-                        {expand? <><IconToDo className="icon"/><Link to="/todo">Memo</Link></> : <Link to="/todo"><IconToDo/></Link>}
+                        {expand? <><IconToDo className="icon"/><NLink to="/todo">Memo</NLink></> : <NLink to="/todo"><IconToDo className="icon"/></NLink>}
                     </li>
                     <li>
-                        {expand? <><IconColorPicker className="icon"/><Link to="/colorpicker">Pick</Link></> : <Link to="/colorpicker"><IconColorPicker onClick={() => console.log("n1o")}></IconColorPicker></Link>}
+                        {expand? <><IconColorPicker className="icon"/><NLink to="/colorpicker">Pick</NLink></> : <NLink to="/colorpicker"><IconColorPicker className="icon"/></NLink>}
                     </li>
                     <li>
-                        {expand? <><IconTips className="icon"/><Link to="/hints">Tips</Link></> : <Link to="/colorpicker"><IconTips onClick={() => console.log("n1o")}></IconTips></Link>}
+                        {expand? <><IconTips className="icon"/><NLink to="/hints">Tips</NLink></> : <NLink to="/hints"><IconTips className="icon"/></NLink>}
                     </li>
   
 

@@ -1,6 +1,6 @@
 #root {
     --navbar-width: 160px;
-    --color: red;
+    --color: rgb(2, 8, 19);
  
 
 }
@@ -14,12 +14,19 @@
     position: relative;
     padding: 0.5rem 0rem;
     color: var(--color);
-    box-shadow: 0 2px 2px 2px;
+    box-shadow: var(--box-shadow-child);
+    border-radius: 10px;
+    margin: 15px;
+    background-color: var(--background-color-child);
+    z-index: 1;
+    
+    
+    
     
 }
 
 .nav-menu.toggle{
-    --navbar-width: 60px;
+    --navbar-width: 54px;
     --color: blue;
 
     
@@ -38,11 +45,17 @@
     list-style-type: none;
     padding: 0.5rem;
     display: flex;
+    
+    
 }
 
-/* .nav-menu li:hover{
-    transform: scale(1.1);
-} */
+.nav-menu li:hover{
+    background-color: var(--background-color);
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+
+}
+
 
 .nav-menu li:hover::before{
     content: "";
@@ -51,16 +64,22 @@
     height: 25px;
     left: 3px;
     background-color: purple;
+    
 }
 
 .icon{
     padding-right:1rem;
+    z-index: 10;
 }
+
 
 
 .nav-menu li a {
     text-decoration: none;
+    
 }
+
+
 
 .nav-menu li .active::before{
     content: "";
@@ -69,7 +88,23 @@
     height: 25px;
     left: 3px;
     background-color: purple;
+    z-index: 10;
 
 
 }
 
+
+
+.nav-menu li .active::after{
+    content: ".";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: transparent;
+    background-color: var(--background-color);
+    opacity: 0.8;
+    border-radius: 10px;
+    z-index: -1;
+
+    
+}
