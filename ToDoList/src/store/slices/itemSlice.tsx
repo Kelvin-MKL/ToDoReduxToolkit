@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
-const USER_URL = 'https://random-data-api.com/api/v2/users'
+const USER_URL = 'http://localhost:5297/api/dish'
 
 
 export const fetchUsers = createAsyncThunk('user', async () => {
@@ -69,7 +69,7 @@ export const ItemSlice = createSlice({
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 console.log("good")
-                console.log(action.payload)
+                // console.log(action.payload)
                 const users = {
                     id: parseInt(Math.random().toString().substring(2,10)),
                     name: action.payload.last_name,
