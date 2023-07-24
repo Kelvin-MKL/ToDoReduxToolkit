@@ -69,10 +69,10 @@ export const ItemSlice = createSlice({
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 console.log("good")
-                // console.log(action.payload)
+                console.log(action.payload)
                 const users = {
                     id: parseInt(Math.random().toString().substring(2,10)),
-                    name: action.payload.last_name,
+                    name: action.payload[6].dishName,
                     place: 'no',
                     isFinished: false,
                 } 
